@@ -180,8 +180,8 @@ int main(int argc, char** argv)
 
 	
 	float runtime = t.Finish();
-	cout << "Processing finished in " << runtime << " (ms).\n";
-	//cout << runtime << "\n";
+	//cout << "Processing finished in " << runtime << " (ms).\n";
+	cout << runtime << "\n";
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
