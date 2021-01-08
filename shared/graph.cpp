@@ -85,7 +85,7 @@ void Graph::ReadGraph()
 	if (hasZeroID)
 		num_nodes++;
 		
-	cout << "Done reading.\n";
-	cout << "Number of nodes = " << num_nodes << endl;
-	cout << "Number of edges = " << num_edges << endl;
+	//cout << "Done reading.\n";
+	//cout << "Number of nodes = " << num_nodes << endl;
+	//cout << "Number of edges = " << num_edges << endl;
 }
