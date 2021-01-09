@@ -176,13 +176,13 @@ int main(int argc, char** argv)
 
 	} while (!(finished));
 	
-	//cout << "Number of iterations = " << itr << endl;
-	cout << itr << endl;
+	cout << "Number of iterations = " << itr << endl;
+	//cout << itr << endl;
 
 	
 	float runtime = t.Finish();
-	//cout << "Processing finished in " << runtime << " (ms).\n";
-	cout << runtime << "\n";
+	cout << "Processing finished in " << runtime << " (ms).\n";
+	//cout << runtime << "\n";
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 

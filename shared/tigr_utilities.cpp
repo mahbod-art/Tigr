@@ -3,14 +3,14 @@
 
 void utilities::PrintResults(uint *results, uint n)
 {
-	/*cout << "Results of first "<< n << " nodes:\n[";
+	cout << "Results of first "<< n << " nodes:\n[";
 	for(int i=0; i<n; i++)
 	{
 		if(i>0)
 			cout << " ";
 		cout << i << ":" << results[i];
 	}
-	cout << "]\n";*/
+	cout << "]\n";
 }
 
 void utilities::PrintResults(float *results, uint n)
