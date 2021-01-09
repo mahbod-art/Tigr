@@ -177,6 +177,7 @@ int main(int argc, char** argv)
 	} while (!(finished));
 	
 	//cout << "Number of iterations = " << itr << endl;
+	cout << itr << endl;
 
 	
 	float runtime = t.Finish();
