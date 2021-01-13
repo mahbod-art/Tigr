@@ -9,7 +9,7 @@ void utilities::PrintResults(uint *results, uint n)
 	myfile << "Results of first "<< n << " nodes:\n";
 	for(int i=0; i<n; i++)
 	{
-		if(i>0)
+		if(i>=0)
 			//cout << " ";
 		//cout << i << ":" << results[i];
 		myfile << i << ":" << results[i] << endl;
