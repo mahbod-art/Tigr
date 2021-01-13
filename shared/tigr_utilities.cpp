@@ -12,7 +12,7 @@ void utilities::PrintResults(uint *results, uint n)
 		if(i>=0)
 			//cout << " ";
 		//cout << i << ":" << results[i];
-		myfile << i << ":" << results[i] << endl;
+		myfile << results[i] << endl;
 	}
 	//cout << "]\n";
 	myfile.close();
