@@ -8,8 +8,6 @@
 #include "../shared/gpu_error_check.cuh"
 
 
-int Edge_Processed = 0;
-
 __global__ void kernel(unsigned int numParts, 
 							unsigned int *nodePointer, 
 							PartPointer *partNodePointer,
@@ -74,6 +72,8 @@ __global__ void clearLabel(bool *label, unsigned int size)
 
 int main(int argc, char** argv)
 {	
+	int Edge_Processed = 0;
+
 	ArgumentParser arguments(argc, argv, true, false);
 	
 	Graph graph(arguments.input, true);
