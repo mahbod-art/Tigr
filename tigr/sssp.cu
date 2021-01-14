@@ -114,7 +114,7 @@ int main(int argc, char** argv)
 	uint *d_dist;
 	int *d_edgeProcessed = 0;  //Edge Processed
 	int *h_edgeProcessed;  //Edge Processed
-	int temp = 0;
+	//int temp = 0;
 	PartPointer *d_partNodePointer; 
 	bool *d_label1;
 	bool *d_label2;
@@ -195,7 +195,7 @@ int main(int argc, char** argv)
 	//cout << runtime << "\n";
 
 	gpuErrorcheck(cudaMemcpy(&h_edgeProcessed, d_edgeProcessed, sizeof(int), cudaMemcpyDeviceToHost));
-	cout << "Edge Processed: " << h_edgeProcessed << endl;
+	cout << "Edge Processed: " << d_edgeProcessed << endl;
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
