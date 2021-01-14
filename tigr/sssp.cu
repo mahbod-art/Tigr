@@ -112,8 +112,8 @@ int main(int argc, char** argv)
 	uint *d_nodePointer;
 	uint *d_edgeList;
 	uint *d_dist;
-	int *d_edge_processed;
-	int *edge_processed;
+	int d_edge_processed;
+	int edge_processed;
 	PartPointer *d_partNodePointer; 
 	bool *d_label1;
 	bool *d_label2;
