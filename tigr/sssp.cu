@@ -181,8 +181,8 @@ int main(int argc, char** argv)
 		
 		gpuErrorcheck(cudaMemcpy(&finished, d_finished, sizeof(bool), cudaMemcpyDeviceToHost));
 
-		gpuErrorcheck(cudaMemcpy(h_edgeList, d_edgeList, (2*num_edges + num_nodes) * sizeof(unsigned int), cudaMemcpyDeviceToHost));
-        cout << h_edgeList << endl;
+		//gpuErrorcheck(cudaMemcpy(h_edgeList, d_edgeList, (2*num_edges + num_nodes) * sizeof(unsigned int), cudaMemcpyDeviceToHost));
+        cout << &d_edgeList << endl;
 
 		//gpuErrorcheck(cudaMemcpy(h_edgeProcessed, d_edgeProcessed, sizeof(int), cudaMemcpyDeviceToHost));
 		//temp = temp + h_edgeProcessed;	
