@@ -15,10 +15,10 @@ __global__ void kernel(unsigned int numParts,
 							unsigned int *dist, 
 							bool *finished,
 							bool *label1,
-							bool *label2)
+							bool *label2,
+						    int Edge_Processed)
 {
 	int partId = blockDim.x * blockIdx.x + threadIdx.x;
-	int Edge_Processed = 0;
 
 	if(partId < numParts)
 	{
@@ -57,13 +57,11 @@ __global__ void kernel(unsigned int numParts,
 				*finished = false;
 
 				label2[edgeList[end]] = true;
-				Edge_Processed++; 
-				
+				Edge_Processed++; 	
 			}
 		}
 	
 	}
-	printf("Edge Processed: %d\n", Edge_Processed); 
 }
 
 __global__ void clearLabel(bool *label, unsigned int size)
@@ -75,6 +73,7 @@ __global__ void clearLabel(bool *label, unsigned int size)
 
 int main(int argc, char** argv)
 {	
+	int Edge_Processed = 0;
 	ArgumentParser arguments(argc, argv, true, false);
 	
 	Graph graph(arguments.input, true);
@@ -154,7 +153,8 @@ int main(int argc, char** argv)
 														d_dist, 
 														d_finished,
 														d_label1,
-														d_label2);
+														d_label2,
+													    Edge_Processed);
 			clearLabel<<< num_nodes/512 + 1 , 512 >>>(d_label1, num_nodes);
 		}
 		else
@@ -166,7 +166,8 @@ int main(int argc, char** argv)
 														d_dist, 
 														d_finished,
 														d_label2,
-														d_label1);
+														d_label1,
+													    Edge_Processed);
 			clearLabel<<< num_nodes/512 + 1 , 512 >>>(d_label2, num_nodes);
 		}
 
@@ -200,5 +201,6 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaFree(d_label1));
 	gpuErrorcheck(cudaFree(d_label2));
 	gpuErrorcheck(cudaFree(d_partNodePointer));
+	cout << "Edge Processed: " << Edge_Processed << endl;
 
 }
