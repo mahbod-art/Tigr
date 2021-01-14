@@ -63,7 +63,7 @@ __global__ void kernel(unsigned int numParts,
 		}
 	
 	}
-	cout << "Edge Processed: " << Edge_Processed << endl; 
+	//cout << "Edge Processed: " << Edge_Processed << endl; 
 }
 
 __global__ void clearLabel(bool *label, unsigned int size)
