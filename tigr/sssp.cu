@@ -180,6 +180,8 @@ int main(int argc, char** argv)
 		
 		gpuErrorcheck(cudaMemcpy(&finished, d_finished, sizeof(bool), cudaMemcpyDeviceToHost));
 
+		cout << d_edgeList << endl;
+
 		//gpuErrorcheck(cudaMemcpy(h_edgeProcessed, d_edgeProcessed, sizeof(int), cudaMemcpyDeviceToHost));
 		//temp = temp + h_edgeProcessed;	
 
