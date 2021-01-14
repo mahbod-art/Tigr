@@ -18,6 +18,7 @@ __global__ void kernel(unsigned int numParts,
 							bool *label2)
 {
 	int partId = blockDim.x * blockIdx.x + threadIdx.x;
+	int Edge_Processed = 0;
 
 	if(partId < numParts)
 	{
@@ -72,8 +73,6 @@ __global__ void clearLabel(bool *label, unsigned int size)
 
 int main(int argc, char** argv)
 {	
-	int Edge_Processed = 0;
-
 	ArgumentParser arguments(argc, argv, true, false);
 	
 	Graph graph(arguments.input, true);
