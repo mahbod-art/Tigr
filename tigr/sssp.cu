@@ -63,7 +63,7 @@ __global__ void kernel(unsigned int numParts,
 		}
 	
 	}
-	printf("Edge Processed: \n", Edge_Processed); 
+	printf("Edge Processed: %d\n", Edge_Processed); 
 }
 
 __global__ void clearLabel(bool *label, unsigned int size)
