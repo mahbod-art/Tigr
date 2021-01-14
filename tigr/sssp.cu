@@ -58,10 +58,12 @@ __global__ void kernel(unsigned int numParts,
 
 				label2[edgeList[end]] = true;
 				Edge_Processed++; 
+				
 			}
 		}
 	
 	}
+	cout << "Edge Processed: " << Edge_Processed << endl; 
 }
 
 __global__ void clearLabel(bool *label, unsigned int size)
@@ -198,7 +200,5 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaFree(d_label1));
 	gpuErrorcheck(cudaFree(d_label2));
 	gpuErrorcheck(cudaFree(d_partNodePointer));
-
-	cout << "Edge Processed: " << Edge_Processed << endl; 
 
 }
