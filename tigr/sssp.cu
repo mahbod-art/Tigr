@@ -112,9 +112,9 @@ int main(int argc, char** argv)
 	uint *d_nodePointer;
 	uint *d_edgeList;
 	uint *d_dist;
-	uint *d_edgeProcessed;
+	//uint *d_edgeProcessed;
 	//uint edgeProcessed;
-	//PartPointer *d_partNodePointer; 
+	PartPointer *d_partNodePointer; 
 	bool *d_label1;
 	bool *d_label2;
 	
