@@ -73,7 +73,7 @@ __global__ void clearLabel(bool *label, unsigned int size)
 
 int main(int argc, char** argv)
 {	
-	unsigned int *Edge_Processed;
+	int *Edge_Processed;
 	ArgumentParser arguments(argc, argv, true, false);
 	
 	Graph graph(arguments.input, true);
