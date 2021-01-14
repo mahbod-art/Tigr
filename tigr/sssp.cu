@@ -8,7 +8,7 @@
 #include "../shared/gpu_error_check.cuh"
 
 
-
+int Edge_Processed = 0;
 
 __global__ void kernel(unsigned int numParts, 
 							unsigned int *nodePointer, 
@@ -58,6 +58,7 @@ __global__ void kernel(unsigned int numParts,
 				*finished = false;
 
 				label2[edgeList[end]] = true;
+				Edge_Processed++; 
 			}
 		}
 	
@@ -198,5 +199,7 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaFree(d_label1));
 	gpuErrorcheck(cudaFree(d_label2));
 	gpuErrorcheck(cudaFree(d_partNodePointer));
+
+	cout << "Edge Processed: " << Edge_Processed << endl; 
 
 }
