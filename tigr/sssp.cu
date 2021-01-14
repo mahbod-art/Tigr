@@ -16,7 +16,7 @@ __global__ void kernel(unsigned int numParts,
 							bool *finished,
 							bool *label1,
 							bool *label2,
-						    int d_edge_processed)
+						    int *d_edgeProcessed)
 {
 	int partId = blockDim.x * blockIdx.x + threadIdx.x;
 
@@ -57,7 +57,7 @@ __global__ void kernel(unsigned int numParts,
 				*finished = false;
 
 				label2[edgeList[end]] = true;
-				d_edge_processed++; 	
+				d_edgeProcessed++; 	
 			}
 		}
 	
