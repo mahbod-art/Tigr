@@ -189,8 +189,8 @@ int main(int argc, char** argv)
 	//cout << "Processing finished in " << runtime << " (ms).\n";
 	//cout << runtime << "\n";
 
-	gpuErrorcheck(cudaMemcpy(edge_processed, d_edge_processed, sizeof(unsigned int), cudaMemcpyDeviceToHost));
-	cout << "Edge Processed: " << d_edge_processed << endl;
+	gpuErrorcheck(cudaMemcpy(edgeProcessed, d_edgeProcessed, sizeof(unsigned int), cudaMemcpyDeviceToHost));
+	cout << "Edge Processed: " << d_edgeProcessed << endl;
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
