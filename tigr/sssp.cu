@@ -73,7 +73,7 @@ __global__ void clearLabel(bool *label, unsigned int size)
 
 int main(int argc, char** argv)
 {	
-	int *Edge_Processed;
+	unsigned int *Edge_Processed;
 	ArgumentParser arguments(argc, argv, true, false);
 	
 	Graph graph(arguments.input, true);
@@ -178,7 +178,8 @@ int main(int argc, char** argv)
 		
 
 	} while (!(finished));
-	
+	cout << "Edge Processed: " << Edge_Processed << endl;
+
 	//cout << "Number of iterations = " << itr << endl;
 	//cout << itr << endl;
 
@@ -201,6 +202,5 @@ int main(int argc, char** argv)
 	gpuErrorcheck(cudaFree(d_label1));
 	gpuErrorcheck(cudaFree(d_label2));
 	gpuErrorcheck(cudaFree(d_partNodePointer));
-	cout << "Edge Processed: " << Edge_Processed << endl;
 
 }
