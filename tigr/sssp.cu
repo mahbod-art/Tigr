@@ -195,7 +195,7 @@ int main(int argc, char** argv)
 	//cout << runtime << "\n";
 
 	gpuErrorcheck(cudaMemcpy(h_edgeProcessed, d_edgeProcessed, sizeof(int), cudaMemcpyDeviceToHost));
-	cout << "Edge Processed: " << d_edgeProcessed << endl;
+	cout << "Edge Processed: " << h_edgeProcessed << endl;
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
