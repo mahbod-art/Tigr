@@ -57,7 +57,7 @@ __global__ void kernel(unsigned int numParts,
 				*finished = false;
 
 				label2[edgeList[end]] = true;
-				Edge_Processed++; 	
+				*Edge_Processed++; 	
 			}
 		}
 	
