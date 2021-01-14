@@ -15,10 +15,10 @@ __global__ void kernel(unsigned int numParts,
 							unsigned int *dist, 
 							bool *finished,
 							bool *label1,
-							bool *label2,
-						    uint *d_edgeProcessed)
+							bool *label2)
 {
 	int partId = blockDim.x * blockIdx.x + threadIdx.x;
+	int d_edgeProcessed = 0; 
 
 	if(partId < numParts)
 	{
@@ -113,8 +113,8 @@ int main(int argc, char** argv)
 	uint *d_edgeList;
 	uint *d_dist;
 	uint *d_edgeProcessed;
-	uint edgeProcessed;
-	PartPointer *d_partNodePointer; 
+	//uint edgeProcessed;
+	//PartPointer *d_partNodePointer; 
 	bool *d_label1;
 	bool *d_label2;
 	
@@ -154,8 +154,7 @@ int main(int argc, char** argv)
 														d_dist, 
 														d_finished,
 														d_label1,
-														d_label2,
-													    d_edgeProcessed);
+														d_label2);
 			clearLabel<<< num_nodes/512 + 1 , 512 >>>(d_label1, num_nodes);
 		}
 		else
@@ -167,8 +166,7 @@ int main(int argc, char** argv)
 														d_dist, 
 														d_finished,
 														d_label2,
-														d_label1,
-													    d_edgeProcessed);
+														d_label1);
 			clearLabel<<< num_nodes/512 + 1 , 512 >>>(d_label2, num_nodes);
 		}
 
@@ -189,7 +187,7 @@ int main(int argc, char** argv)
 	//cout << "Processing finished in " << runtime << " (ms).\n";
 	//cout << runtime << "\n";
 
-	cout << "Edge Processed: " << d_edgeProcessed << endl;
+	//cout << "Edge Processed: " << d_edgeProcessed << endl;
 
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
