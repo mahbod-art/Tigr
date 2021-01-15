@@ -3,19 +3,19 @@
 
 void utilities::PrintResults(uint *results, uint n)
 {
-	ofstream myfile;
-    myfile.open ("example.txt");
-	//cout << "Results of first "<< n << " nodes:\n[";
+	//ofstream myfile;
+    //myfile.open ("example.txt");
+	cout << "Results of first "<< n << " nodes:\n[";
 	//myfile << "Results of first "<< n << " nodes:\n";
 	for(int i=0; i<n; i++)
 	{
-		if(i>=0)
-			//cout << " ";
-		//cout << i << ":" << results[i];
-		myfile << results[i] << endl;
+		if(i>0)
+			cout << " ";
+		cout << i << ":" << results[i];
+		//myfile << results[i] << endl;
 	}
-	//cout << "]\n";
-	myfile.close();
+	cout << "]\n";
+	//myfile.close();
 }
 
 void utilities::PrintResults(float *results, uint n)
