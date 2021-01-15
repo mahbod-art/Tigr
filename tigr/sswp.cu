@@ -201,7 +201,7 @@ int main(int argc, char** argv)
 	
 	gpuErrorcheck(cudaMemcpy(dist, d_dist, num_nodes*sizeof(unsigned int), cudaMemcpyDeviceToHost));
 
-	utilities::PrintResults(dist, 30);
+	utilities::PrintResults(dist, graph.num_nodes);
 		
 	if(arguments.hasOutput)
 		utilities::SaveResults(arguments.output, dist, num_nodes);
