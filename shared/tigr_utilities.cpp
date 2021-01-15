@@ -6,7 +6,7 @@ void utilities::PrintResults(uint *results, uint n)
 	ofstream myfile;
     myfile.open ("example.txt");
 	//cout << "Results of first "<< n << " nodes:\n[";
-	myfile << "Results of first "<< n << " nodes:\n";
+	//myfile << "Results of first "<< n << " nodes:\n";
 	for(int i=0; i<n; i++)
 	{
 		if(i>=0)
